@@ -1,0 +1,23 @@
+replicaCount: 2
+
+image:
+  repository: yourusername/user-management-service
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+database:
+  host: postgres-service
+  name: userdb
+  username: admin
